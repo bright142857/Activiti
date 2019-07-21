@@ -28,7 +28,6 @@ import org.springframework.context.annotation.Configuration;
  * @author Josh Long
  */
 @Configuration
-@ConditionalOnClass (name = "org.springframework.boot.actuate.endpoint.AbstractEndpoint")
 public class EndpointAutoConfiguration {
 
     @Bean
@@ -38,7 +37,8 @@ public class EndpointAutoConfiguration {
 
     @Bean
     public ProcessEngineMvcEndpoint processEngineMvcEndpoint(
-            ProcessEngineEndpoint engineEndpoint, RepositoryService repositoryService) {
+            ProcessEngineEndpoint engineEndpoint,
+            RepositoryService repositoryService) {
         return new ProcessEngineMvcEndpoint(engineEndpoint, repositoryService);
     }
 }
