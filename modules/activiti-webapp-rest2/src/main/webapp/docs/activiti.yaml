@@ -252,8 +252,8 @@ paths:
               format: "byte"
         404:
           description: "Indicates the requested historic detail instance was not found\
-            \ or the historic detail instance doesn’t have a variable with the given\
-            \ name or the variable doesn’t have a binary stream available. Status\
+            \ or the historic detail instance doesnï¿½t have a variable with the given\
+            \ name or the variable doesnï¿½t have a binary stream available. Status\
             \ message provides additional information."
       security:
       - basicAuth: []
@@ -304,7 +304,7 @@ paths:
         type: "string"
       - name: "excludeSubprocesses"
         in: "query"
-        description: "Return only historic process instances which aren’t sub processes."
+        description: "Return only historic process instances which arenï¿½t sub processes."
         required: false
         type: "boolean"
       - name: "finishedAfter"
@@ -502,7 +502,7 @@ paths:
             $ref: "#/definitions/CommentResponse"
         404:
           description: "Indicates the requested historic process instance was not\
-            \ found or the historic process instance doesn’t have a comment with the\
+            \ found or the historic process instance doesnï¿½t have a comment with the\
             \ given ID."
       security:
       - basicAuth: []
@@ -530,7 +530,7 @@ paths:
             \ and the comment is deleted. Response body is left empty intentionally."
         404:
           description: "Indicates the requested historic process instance was not\
-            \ found or the historic process instance doesn’t have a comment with the\
+            \ found or the historic process instance doesnï¿½t have a comment with the\
             \ given ID."
       security:
       - basicAuth: []
@@ -591,8 +591,8 @@ paths:
               format: "byte"
         404:
           description: "Indicates the requested process instance was not found or\
-            \ the process instance doesn’t have a variable with the given name or\
-            \ the variable doesn’t have a binary stream available. Status message\
+            \ the process instance doesnï¿½t have a variable with the given name or\
+            \ the variable doesnï¿½t have a binary stream available. Status message\
             \ provides additional information."
       security:
       - basicAuth: []
@@ -950,8 +950,8 @@ paths:
               format: "byte"
         404:
           description: "Indicates the requested task instance was not found or the\
-            \ process instance doesn’t have a variable with the given name or the\
-            \ variable doesn’t have a binary stream available. Status message provides\
+            \ process instance doesnï¿½t have a variable with the given name or the\
+            \ variable doesnï¿½t have a binary stream available. Status message provides\
             \ additional information."
       security:
       - basicAuth: []
@@ -1028,8 +1028,8 @@ paths:
               format: "byte"
         404:
           description: "Indicates the requested variable instance was not found or\
-            \ the variable instance doesn’t have a variable with the given name or\
-            \ the variable doesn’t have a binary stream available. Status message\
+            \ the variable instance doesnï¿½t have a variable with the given name or\
+            \ the variable doesnï¿½t have a binary stream available. Status message\
             \ provides additional information."
       security:
       - basicAuth: []
@@ -1441,7 +1441,7 @@ paths:
     get:
       tags:
       - "Users"
-      summary: "List a user’s info"
+      summary: "List a userï¿½s info"
       description: ""
       operationId: "listUsersInfo"
       produces:
@@ -1467,7 +1467,7 @@ paths:
     post:
       tags:
       - "Users"
-      summary: "Create a new user’s info entry"
+      summary: "Create a new userï¿½s info entry"
       description: ""
       operationId: "createUserInfo"
       produces:
@@ -1504,7 +1504,7 @@ paths:
     get:
       tags:
       - "Users"
-      summary: "Get a user’s info"
+      summary: "Get a userï¿½s info"
       description: ""
       operationId: "getUserInfo"
       produces:
@@ -1527,7 +1527,7 @@ paths:
           schema:
             $ref: "#/definitions/UserInfoResponse"
         404:
-          description: "Indicates the requested user was not found or the user doesn’\
+          description: "Indicates the requested user was not found or the user doesnï¿½\
             t have info for the given key. Status description contains additional\
             \ information about the error."
       security:
@@ -1535,7 +1535,7 @@ paths:
     put:
       tags:
       - "Users"
-      summary: "Update a user’s info"
+      summary: "Update a userï¿½s info"
       description: ""
       operationId: "updateUserInfo"
       produces:
@@ -1564,7 +1564,7 @@ paths:
         400:
           description: "Indicates the value was missing from the request body."
         404:
-          description: "Indicates the requested user was not found or the user doesn’\
+          description: "Indicates the requested user was not found or the user doesnï¿½\
             t have info for the given key. Status description contains additional\
             \ information about the error."
       security:
@@ -1572,7 +1572,7 @@ paths:
     delete:
       tags:
       - "Users"
-      summary: "Delete a user’s info"
+      summary: "Delete a userï¿½s info"
       description: ""
       operationId: "deleteUserInfo"
       parameters:
@@ -1591,7 +1591,7 @@ paths:
           description: "Indicates the user was found and the info for the given key\
             \ has been deleted. Response body is left empty intentionally."
         404:
-          description: "Indicates the requested user was not found or the user doesn’\
+          description: "Indicates the requested user was not found or the user doesnï¿½\
             t have info for the given key. Status description contains additional\
             \ information about the error."
       security:
@@ -1600,9 +1600,9 @@ paths:
     get:
       tags:
       - "Users"
-      summary: "Get a user’s picture"
+      summary: "Get a userï¿½s picture"
       description: "The response body contains the raw picture data, representing\
-        \ the user’s picture. The Content-type of the response corresponds to the\
+        \ the userï¿½s picture. The Content-type of the response corresponds to the\
         \ mimeType that was set when creating the picture."
       operationId: "getUserPicture"
       parameters:
@@ -1629,7 +1629,7 @@ paths:
     put:
       tags:
       - "Users"
-      summary: "Updating a user’s picture"
+      summary: "Updating a userï¿½s picture"
       description: "The request should be of type multipart/form-data. There should\
         \ be a single file-part included with the binary value of the picture. On\
         \ top of that, the following additional form-fields can be present:\n\nmimeType:\
@@ -1828,7 +1828,7 @@ paths:
           schema:
             type: "string"
         404:
-          description: "Indicates the requested job was not found or the job doesn’\
+          description: "Indicates the requested job was not found or the job doesnï¿½\
             t have an exception stacktrace. Status-description contains additional\
             \ information about the error."
       security:
@@ -2060,7 +2060,7 @@ paths:
           schema:
             type: "string"
         404:
-          description: "Indicates the requested job was not found or the job doesn’\
+          description: "Indicates the requested job was not found or the job doesnï¿½\
             t have an exception stacktrace. Status-description contains additional\
             \ information about the error."
       security:
@@ -2243,7 +2243,7 @@ paths:
           schema:
             type: "string"
         404:
-          description: "Indicates the requested job was not found or the job doesn’\
+          description: "Indicates the requested job was not found or the job doesnï¿½\
             t have an exception stacktrace. Status-description contains additional\
             \ information about the error."
       security:
@@ -2537,7 +2537,7 @@ paths:
           schema:
             type: "string"
         404:
-          description: "Indicates the requested job was not found or the job doesn’\
+          description: "Indicates the requested job was not found or the job doesnï¿½\
             t have an exception stacktrace. Status-description contains additional\
             \ information about the error."
       security:
@@ -2548,7 +2548,7 @@ paths:
       - "Executions"
       summary: "Query executions"
       description: "The request body can contain all possible filters that can be\
-        \ used in the List executions URL query. On top of these, it’s possible to\
+        \ used in the List executions URL query. On top of these, itï¿½s possible to\
         \ provide an array of variables and processInstanceVariables to include in\
         \ the query, with their format described here.\n\nThe general paging and sorting\
         \ query-parameters can be used for this URL."
@@ -2579,7 +2579,7 @@ paths:
       description: "All supported JSON parameter fields allowed are exactly the same\
         \ as the parameters found for getting a collection of historic task instances,\
         \ but passed in as JSON-body arguments rather than URL-parameters to allow\
-        \ for more advanced querying and preventing errors with request-uri’s that\
+        \ for more advanced querying and preventing errors with request-uriï¿½s that\
         \ are too long."
       operationId: "queryActivityInstances"
       produces:
@@ -2608,7 +2608,7 @@ paths:
       description: "All supported JSON parameter fields allowed are exactly the same\
         \ as the parameters found for getting a collection of historic process instances,\
         \ but passed in as JSON-body arguments rather than URL-parameters to allow\
-        \ for more advanced querying and preventing errors with request-uri’s that\
+        \ for more advanced querying and preventing errors with request-uriï¿½s that\
         \ are too long."
       operationId: "queryHistoricDetail"
       produces:
@@ -2638,7 +2638,7 @@ paths:
       description: "All supported JSON parameter fields allowed are exactly the same\
         \ as the parameters found for getting a collection of historic process instances,\
         \ but passed in as JSON-body arguments rather than URL-parameters to allow\
-        \ for more advanced querying and preventing errors with request-uri’s that\
+        \ for more advanced querying and preventing errors with request-uriï¿½s that\
         \ are too long. On top of that, the query allows for filtering based on process\
         \ variables. The variables property is a JSON-array containing objects with\
         \ the format as described here."
@@ -2670,7 +2670,7 @@ paths:
       description: "All supported JSON parameter fields allowed are exactly the same\
         \ as the parameters found for getting a collection of historic task instances,\
         \ but passed in as JSON-body arguments rather than URL-parameters to allow\
-        \ for more advanced querying and preventing errors with request-uri’s that\
+        \ for more advanced querying and preventing errors with request-uriï¿½s that\
         \ are too long. On top of that, the query allows for filtering based on process\
         \ variables. The taskVariables and processVariables properties are JSON-arrays\
         \ containing objects with the format as described here."
@@ -2701,7 +2701,7 @@ paths:
       description: "All supported JSON parameter fields allowed are exactly the same\
         \ as the parameters found for getting a collection of historic process instances,\
         \ but passed in as JSON-body arguments rather than URL-parameters to allow\
-        \ for more advanced querying and preventing errors with request-uri’s that\
+        \ for more advanced querying and preventing errors with request-uriï¿½s that\
         \ are too long. On top of that, the query allows for filtering based on process\
         \ variables. The variables property is a JSON-array containing objects with\
         \ the format as described here."
@@ -2730,7 +2730,7 @@ paths:
       - "Process Instances"
       summary: "Query process instances"
       description: "The request body can contain all possible filters that can be\
-        \ used in the List process instances URL query. On top of these, it’s possible\
+        \ used in the List process instances URL query. On top of these, itï¿½s possible\
         \ to provide an array of variables to include in the query, with their format\
         \ described here.\n\nThe general paging and sorting query-parameters can be\
         \ used for this URL."
@@ -2763,7 +2763,7 @@ paths:
         \ as the parameters found for getting a collection of tasks (except for candidateGroupIn\
         \ which is only available in this POST task query REST service), but passed\
         \ in as JSON-body arguments rather than URL-parameters to allow for more advanced\
-        \ querying and preventing errors with request-uri’s that are too long. On\
+        \ querying and preventing errors with request-uriï¿½s that are too long. On\
         \ top of that, the query allows for filtering based on task and process variables.\
         \ The taskVariables and processInstanceVariables are both JSON-arrays containing\
         \ objects with the format as described here."
@@ -2814,7 +2814,7 @@ paths:
         type: "string"
       - name: "categoryNotEquals"
         in: "query"
-        description: "Only return deployments which don’t have the given category."
+        description: "Only return deployments which donï¿½t have the given category."
         required: false
         type: "string"
       - name: "tenantId"
@@ -3051,7 +3051,7 @@ paths:
         type: "string"
       - name: "categoryNotEquals"
         in: "query"
-        description: "Only return models which don’t have the given category."
+        description: "Only return models which donï¿½t have the given category."
         required: false
         type: "string"
       - name: "name"
@@ -3290,7 +3290,7 @@ paths:
         type: "string"
       - name: "categoryNotEquals"
         in: "query"
-        description: "Only return process definitions which don’t have the given category."
+        description: "Only return process definitions which donï¿½t have the given category."
         required: false
         type: "string"
       - name: "deploymentId"
@@ -3504,7 +3504,7 @@ paths:
             \ link was returned."
         404:
           description: "Indicates the requested process definition was not found or\
-            \ the process definition doesn’t have an identity-link that matches the\
+            \ the process definition doesnï¿½t have an identity-link that matches the\
             \ url."
       security:
       - basicAuth: []
@@ -3537,7 +3537,7 @@ paths:
             \ link was removed. The response body is intentionally empty."
         404:
           description: "Indicates the requested process definition was not found or\
-            \ the process definition doesn’t have an identity-link that matches the\
+            \ the process definition doesnï¿½t have an identity-link that matches the\
             \ url."
       security:
       - basicAuth: []
@@ -3979,7 +3979,7 @@ paths:
         404:
           description: "Indicates the requested execution was not found or the execution\
             \ does not have a variable with the given name in the requested scope\
-            \ (in case scope-query parameter was omitted, variable doesn’t exist in\
+            \ (in case scope-query parameter was omitted, variable doesnï¿½t exist in\
             \ local and global scope). Status description contains additional information\
             \ about the error."
       security:
@@ -4075,7 +4075,7 @@ paths:
               format: "byte"
         404:
           description: "Indicates the requested execution was not found or the task\
-            \ doesn’t have a variable with the given name (in the given scope). Status\
+            \ doesnï¿½t have a variable with the given name (in the given scope). Status\
             \ message provides additional information."
       security:
       - basicAuth: []
@@ -4136,7 +4136,7 @@ paths:
         type: "string"
       - name: "excludeSubprocesses"
         in: "query"
-        description: "Return only process instances which aren’t sub processes."
+        description: "Return only process instances which arenï¿½t sub processes."
         required: false
         type: "boolean"
       - name: "includeProcessVariables"
@@ -4337,7 +4337,7 @@ paths:
               format: "byte"
         400:
           description: "Indicates the requested process instance was not found but\
-            \ the process doesn’t contain any graphical information (BPMN:DI) and\
+            \ the process doesnï¿½t contain any graphical information (BPMN:DI) and\
             \ no diagram can be created."
         404:
           description: "Indicates the requested process instance was not found."
@@ -4349,7 +4349,7 @@ paths:
       - "Process Instances"
       summary: "Get involved people for process instance"
       description: "Note that the groupId in Response Body will always be null, as\
-        \ it’s only possible to involve users with a process-instance."
+        \ itï¿½s only possible to involve users with a process-instance."
       operationId: "listProcessInstanceIdentityLinks"
       produces:
       - "application/json"
@@ -4375,7 +4375,7 @@ paths:
       - "Process Instances"
       summary: "Add an involved user to a process instance"
       description: "Note that the groupId in Response Body will always be null, as\
-        \ it’s only possible to involve users with a process-instance."
+        \ itï¿½s only possible to involve users with a process-instance."
       operationId: "createProcessInstanceIdentityLinks"
       produces:
       - "application/json"
@@ -4435,7 +4435,7 @@ paths:
             $ref: "#/definitions/RestIdentityLink"
         404:
           description: "Indicates the requested process instance was not found or\
-            \ the link to delete doesn’t exist. The response status contains additional\
+            \ the link to delete doesnï¿½t exist. The response status contains additional\
             \ information about the error."
       security:
       - basicAuth: []
@@ -4467,7 +4467,7 @@ paths:
             \ been deleted. Response body is left empty intentionally."
         404:
           description: "Indicates the requested process instance was not found or\
-            \ the link to delete doesn’t exist. The response status contains additional\
+            \ the link to delete doesnï¿½t exist. The response status contains additional\
             \ information about the error."
       security:
       - basicAuth: []
@@ -4477,7 +4477,7 @@ paths:
       - "Process Instances"
       summary: "List of variables for a process instance"
       description: "In case the variable is a binary variable or serializable, the\
-        \ valueUrl points to an URL to fetch the raw value. If it’s a plain variable,\
+        \ valueUrl points to an URL to fetch the raw value. If itï¿½s a plain variable,\
         \ the value is present in the response. Note that only local scoped variables\
         \ are returned, as there is no global scope for process-instance variables."
       operationId: "getVariables"
@@ -4737,7 +4737,7 @@ paths:
               type: "string"
               format: "byte"
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have a variable with the given name (in the given scope). Status message\
             \ provides additional information."
       security:
@@ -4757,12 +4757,12 @@ paths:
           $ref: "#/definitions/SignalEventReceivedRequest"
       responses:
         200:
-          description: "Indicated signal has been processed and no errors occurred."
+          description: "Indicated signal has been processes and no errors occurred."
         202:
           description: "Indicated signal processing is queued as a job, ready to be\
             \ executed."
         400:
-          description: "Signal not processed. The signal name is missing or variables\
+          description: "Signal not processes. The signal name is missing or variables\
             \ are used together with async, which is not allowed. Response body contains\
             \ additional information about the error."
       security:
@@ -4960,7 +4960,7 @@ paths:
         type: "string"
       - name: "withoutDueDate"
         in: "query"
-        description: "Only return tasks which don’t have a due date. The property\
+        description: "Only return tasks which donï¿½t have a due date. The property\
           \ is ignored if the value is false."
         required: false
         type: "boolean"
@@ -5174,7 +5174,7 @@ paths:
           description: "Indicates the task was found and has been deleted. Response-body\
             \ is intentionally empty."
         403:
-          description: "Indicates the requested task cannot be deleted because it’\
+          description: "Indicates the requested task cannot be deleted because itï¿½\
             s part of a workflow."
         404:
           description: "Indicates the requested task was not found."
@@ -5271,7 +5271,7 @@ paths:
           schema:
             $ref: "#/definitions/AttachmentResponse"
         404:
-          description: "Indicates the requested task was not found or the tasks doesn’\
+          description: "Indicates the requested task was not found or the tasks doesnï¿½\
             t have a attachment with the given ID."
       security:
       - basicAuth: []
@@ -5297,7 +5297,7 @@ paths:
           description: "Indicates the task and attachment were found and the attachment\
             \ is deleted. Response body is left empty intentionally."
         404:
-          description: "Indicates the requested task was not found or the tasks doesn’\
+          description: "Indicates the requested task was not found or the tasks doesnï¿½\
             t have a attachment with the given ID."
       security:
       - basicAuth: []
@@ -5332,8 +5332,8 @@ paths:
               type: "string"
               format: "byte"
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
-            t have an attachment with the given id or the attachment doesn’t have\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
+            t have an attachment with the given id or the attachment doesnï¿½t have\
             \ a binary stream available. Status message provides additional information."
       security:
       - basicAuth: []
@@ -5424,7 +5424,7 @@ paths:
           schema:
             $ref: "#/definitions/CommentResponse"
         404:
-          description: "Indicates the requested task was not found or the tasks doesn’\
+          description: "Indicates the requested task was not found or the tasks doesnï¿½\
             t have a comment with the given ID."
       security:
       - basicAuth: []
@@ -5450,7 +5450,7 @@ paths:
           description: "Indicates the task and comment were found and the comment\
             \ is deleted. Response body is left empty intentionally."
         404:
-          description: "Indicates the requested task was not found or the tasks doesn’\
+          description: "Indicates the requested task was not found or the tasks doesnï¿½\
             t have a comment with the given ID."
       security:
       - basicAuth: []
@@ -5506,7 +5506,7 @@ paths:
           schema:
             $ref: "#/definitions/EventResponse"
         404:
-          description: "Indicates the requested task was not found or the tasks doesn’\
+          description: "Indicates the requested task was not found or the tasks doesnï¿½\
             t have an event with the given ID."
       security:
       - basicAuth: []
@@ -5529,7 +5529,7 @@ paths:
         204:
           description: "Indicates the task was found and the events are returned."
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have the requested event."
       security:
       - basicAuth: []
@@ -5589,7 +5589,7 @@ paths:
         201:
           description: "Indicates the task was found and the identity link was created."
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have the requested identityLink. The status contains additional information\
             \ about this error."
       security:
@@ -5665,7 +5665,7 @@ paths:
           schema:
             $ref: "#/definitions/RestIdentityLink"
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have the requested identityLink. The status contains additional information\
             \ about this error."
       security:
@@ -5703,7 +5703,7 @@ paths:
           description: "Indicates the task and identity link were found and the link\
             \ has been deleted. Response-body is intentionally empty."
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have the requested identityLink. The status contains additional information\
             \ about this error."
       security:
@@ -5859,7 +5859,7 @@ paths:
         in: "query"
         description: "Scope of variable to be returned. When local, only task-local\
           \ variable value is returned. When global, only variable value from the\
-          \ task’s parent execution-hierarchy are returned. When the parameter is\
+          \ taskï¿½s parent execution-hierarchy are returned. When the parameter is\
           \ omitted, a local variable will be returned if it exists, otherwise a global\
           \ variable."
         required: false
@@ -5871,7 +5871,7 @@ paths:
           schema:
             $ref: "#/definitions/RestVariable"
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have a variable with the given name (in the given scope). Status message\
             \ provides additional information."
       security:
@@ -5919,7 +5919,7 @@ paths:
             \ a process associated) with scope global. Status message provides additional\
             \ information."
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have a variable with the given name in the given scope. Status message\
             \ contains additional information about the error."
         415:
@@ -5950,7 +5950,7 @@ paths:
           description: "Indicates the task variable was found and has been deleted.\
             \ Response-body is intentionally empty."
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have a variable with the given name. Status message contains additional\
             \ information about the error."
       security:
@@ -5991,7 +5991,7 @@ paths:
               type: "string"
               format: "byte"
         404:
-          description: "Indicates the requested task was not found or the task doesn’\
+          description: "Indicates the requested task was not found or the task doesnï¿½\
             t have a variable with the given name (in the given scope). Status message\
             \ provides additional information."
       security:
@@ -7855,7 +7855,7 @@ definitions:
           $ref: "#/definitions/RestVariable"
       tenantId:
         type: "string"
-        description: "ID of the tenant that the signal event should be processed in"
+        description: "ID of the tenant that the signal event should be processes in"
       async:
         type: "boolean"
         description: "If true, handling of the signal will happen asynchronously.\

@@ -20,7 +20,7 @@
                 <body>
                   Hello ${male ? 'Mr.' : 'Mrs.' } ${recipientName},<br/><br/>
                   
-                  As of ${now}, your order <b>has been processed and shipped</b>.<br/><br/>
+                  As of ${now}, your order <b>has been processes and shipped</b>.<br/><br/>
                   
                   Kind regards,<br/>
                   

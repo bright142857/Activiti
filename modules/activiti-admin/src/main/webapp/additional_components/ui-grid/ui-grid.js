@@ -1,6 +1,6 @@
 /*!
  * ui-grid - v3.0.4 - 2015-08-13
- * Copyright (c) 2015 ; License: MIT 
+ * Copyright (c) 2015 ; License: MIT
  */
 
 (function () {
@@ -146,7 +146,7 @@ angular.module('ui.grid').directive('uiGridCell', ['$compile', '$parse', 'gridUt
           // No controller, compile the element manually (for unit tests)
           else {
             if ( uiGridCtrl && !$scope.col.compiledElementFn ){
-              // gridUtil.logError('Render has been called before precompile.  Please log a ui-grid issue');  
+              // gridUtil.logError('Render has been called before precompile.  Please log a ui-grid issue');
 
               $scope.col.getCompiledElementFn()
                 .then(function (compiledElementFn) {
@@ -189,10 +189,10 @@ angular.module('ui.grid').directive('uiGridCell', ['$compile', '$parse', 'gridUt
           if ($scope.col.cellClass) {
             updateClass();
           }
-          
+
           // Register a data change watch that would get triggered whenever someone edits a cell or modifies column defs
           var dataChangeDereg = $scope.grid.registerDataChangeCallback( updateClass, [uiGridConstants.dataChange.COLUMN, uiGridConstants.dataChange.EDIT]);
-          
+
           // watch the col and row to see if they change - which would indicate that we've scrolled or sorted or otherwise
           // changed the row/col that this cell relates to, and we need to re-evaluate cell classes and maybe other things
           var cellChangeFunction = function( n, o ){
@@ -216,14 +216,14 @@ angular.module('ui.grid').directive('uiGridCell', ['$compile', '$parse', 'gridUt
           var colWatchDereg = $scope.$watch( 'col', cellChangeFunction );
 */
           var rowWatchDereg = $scope.$watch( 'row', cellChangeFunction );
-          
-          
+
+
           var deregisterFunction = function() {
             dataChangeDereg();
 //            colWatchDereg();
-            rowWatchDereg(); 
+            rowWatchDereg();
           };
-          
+
           $scope.$on( '$destroy', deregisterFunction );
           $elm.on( '$destroy', deregisterFunction );
         }
@@ -838,7 +838,7 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
                 contents.removeClass( classAdded );
                 classAdded = null;
               }
-  
+
               if (angular.isFunction($scope.col.footerCellClass)) {
                 classAdded = $scope.col.footerCellClass($scope.grid, $scope.row, $scope.col, $scope.rowRenderIndex, $scope.colRenderIndex);
               }
@@ -847,7 +847,7 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
               }
               contents.addClass(classAdded);
             };
-  
+
             if ($scope.col.footerCellClass) {
               updateClass();
             }
@@ -1008,7 +1008,7 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
              gridUtil.getTemplate(groupPanelTemplate)
               .then(function (contents) {
                 var template = angular.element(contents);
-                
+
                 var newElm = $compile(template)($scope);
                 $elm.append(newElm);
               });
@@ -1430,19 +1430,19 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
             $scope.colContainer = containerCtrl.colContainer;
 
             updateHeaderReferences();
-            
+
             var headerTemplate;
             if (!$scope.grid.options.showHeader) {
               headerTemplate = emptyTemplate;
             }
             else {
-              headerTemplate = ($scope.grid.options.headerTemplate) ? $scope.grid.options.headerTemplate : defaultTemplate;            
+              headerTemplate = ($scope.grid.options.headerTemplate) ? $scope.grid.options.headerTemplate : defaultTemplate;
             }
 
             gridUtil.getTemplate(headerTemplate)
               .then(function (contents) {
                 var template = angular.element(contents);
-                
+
                 var newElm = $compile(template)($scope);
                 $elm.replaceWith(newElm);
 
@@ -1514,7 +1514,7 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
               // already being populated correctly
 
               var columnCache = containerCtrl.colContainer.visibleColumnCache;
-              
+
               // Build the CSS
               // uiGridCtrl.grid.columns.forEach(function (column) {
               var ret = '';
@@ -1525,13 +1525,13 @@ function ($timeout, gridUtil, uiGridConstants, uiGridColumnMenuService, $documen
               });
 
               containerCtrl.colContainer.canvasWidth = canvasWidth;
-              
+
               // Return the styles back to buildStyles which pops them into the `customStyles` scope variable
               return ret;
             }
-            
+
             containerCtrl.header = $elm;
-            
+
             var headerViewport = $elm[0].getElementsByClassName('ui-grid-header-viewport')[0];
             if (headerViewport) {
               containerCtrl.headerViewport = headerViewport;
@@ -3102,10 +3102,10 @@ angular.module('ui.grid')
           deregFunctions.push( $scope.$parent.$watch($scope.uiGrid.data, dataWatchFunction) );
           deregFunctions.push( $scope.$parent.$watch(function() {
             if ( self.grid.appScope[$scope.uiGrid.data] ){
-              return self.grid.appScope[$scope.uiGrid.data].length; 
+              return self.grid.appScope[$scope.uiGrid.data].length;
             } else {
               return undefined;
-            } 
+            }
           }, dataWatchFunction) );
         } else {
           deregFunctions.push( $scope.$parent.$watch(function() { return $scope.uiGrid.data; }, dataWatchFunction) );
@@ -3121,7 +3121,7 @@ angular.module('ui.grid')
         }
         deregFunctions.push( $scope.$parent.$watchCollection(function() { return $scope.uiGrid.columnDefs; }, columnDefsWatchFunction) );
       }
-      
+
 
       function columnDefsWatchFunction(n, o) {
         if (n && n !== o) {
@@ -3139,7 +3139,7 @@ angular.module('ui.grid')
       function dataWatchFunction(newData) {
         // gridUtil.logDebug('dataWatch fired');
         var promises = [];
-        
+
         if ( self.grid.options.fastWatch ){
           if (angular.isString($scope.uiGrid.data)) {
             newData = self.grid.appScope[$scope.uiGrid.data];
@@ -3147,7 +3147,7 @@ angular.module('ui.grid')
             newData = $scope.uiGrid.data;
           }
         }
-        
+
         if (newData) {
           if (
             // If we have no columns (i.e. columns length is either 0 or equal to the number of row header columns, which don't count because they're created automatically)
@@ -3346,7 +3346,7 @@ function uiGridDirective($compile, $templateCache, $timeout, $window, gridUtil, 
             var contentHeight = grid.options.minRowsToShow * grid.options.rowHeight;
             var headerHeight = grid.options.showHeader ? grid.options.headerRowHeight : 0;
             var footerHeight = grid.calcFooterHeight();
-            
+
             var scrollbarHeight = 0;
             if (grid.options.enableHorizontalScrollbar === uiGridConstants.scrollbars.ALWAYS) {
               scrollbarHeight = gridUtil.getScrollbarWidth();
@@ -3901,7 +3901,7 @@ angular.module('ui.grid')
      * @methodOf  ui.grid.core.api:PublicApi
      * @description The visibility of a column has changed,
      * the column itself is passed out as a parameter of the event.
-     * 
+     *
      * @param {$scope} scope The scope of the controller. This is used to deregister this event when the scope is destroyed.
      * @param {Function} callBack Will be called when the event is emited. The function passes back the GridCol that has changed.
      *
@@ -6049,7 +6049,7 @@ angular.module('ui.grid')
         var GridApi = function GridApi(grid) {
           this.grid = grid;
           this.listeners = [];
-          
+
           /**
            * @ngdoc function
            * @name renderingComplete
@@ -6058,14 +6058,14 @@ angular.module('ui.grid')
            * time as `onRegisterApi`, but provides a way to obtain
            * that same event within features without stopping end
            * users from getting at the onRegisterApi method.
-           * 
+           *
            * Included in gridApi so that it's always there - otherwise
            * there is still a timing problem with when a feature can
-           * call this. 
-           * 
-           * @param {GridApi} gridApi the grid api, as normally 
+           * call this.
+           *
+           * @param {GridApi} gridApi the grid api, as normally
            * returned in the onRegisterApi method
-           * 
+           *
            * @example
            * <pre>
            *      gridApi.core.on.renderingComplete( grid );
@@ -6079,9 +6079,9 @@ angular.module('ui.grid')
            * @eventOf  ui.grid.core.api:PublicApi
            * @description  is raised after the filter is changed.  The nature
            * of the watch expression doesn't allow notification of what changed,
-           * so the receiver of this event will need to re-extract the filter 
+           * so the receiver of this event will need to re-extract the filter
            * conditions from the columns.
-           * 
+           *
            */
           this.registerEvent( 'core', 'filterChanged' );
 
@@ -6090,26 +6090,26 @@ angular.module('ui.grid')
            * @name setRowInvisible
            * @methodOf  ui.grid.core.api:PublicApi
            * @description Sets an override on the row to make it always invisible,
-           * which will override any filtering or other visibility calculations.  
+           * which will override any filtering or other visibility calculations.
            * If the row is currently visible then sets it to invisible and calls
            * both grid refresh and emits the rowsVisibleChanged event
            * @param {object} rowEntity gridOptions.data[] array instance
            */
           this.registerMethod( 'core', 'setRowInvisible', GridRow.prototype.setRowInvisible );
-      
+
           /**
            * @ngdoc function
            * @name clearRowInvisible
            * @methodOf  ui.grid.core.api:PublicApi
-           * @description Clears any override on visibility for the row so that it returns to 
-           * using normal filtering and other visibility calculations.  
+           * @description Clears any override on visibility for the row so that it returns to
+           * using normal filtering and other visibility calculations.
            * If the row is currently invisible then sets it to visible and calls
            * both grid refresh and emits the rowsVisibleChanged event
            * TODO: if a filter is active then we can't just set it to visible?
            * @param {object} rowEntity gridOptions.data[] array instance
            */
           this.registerMethod( 'core', 'clearRowInvisible', GridRow.prototype.clearRowInvisible );
-      
+
           /**
            * @ngdoc function
            * @name getVisibleRows
@@ -6119,7 +6119,7 @@ angular.module('ui.grid')
            * @returns {array} an array of gridRow
            */
           this.registerMethod( 'core', 'getVisibleRows', this.grid.getVisibleRows );
-          
+
           /**
            * @ngdoc event
            * @name rowsVisibleChanged
@@ -6392,7 +6392,7 @@ angular.module('ui.grid')
           });
 
         };
-        
+
         return GridApi;
 
       }]);
@@ -8720,52 +8720,52 @@ angular.module('ui.grid')
   GridRow.prototype.getEntityQualifiedColField = function(col) {
     return gridUtil.preEval('entity.' + col.field);
   };
-  
-  
+
+
   /**
    * @ngdoc function
    * @name setRowInvisible
    * @methodOf  ui.grid.class:GridRow
    * @description Sets an override on the row that forces it to always
    * be invisible. Emits the rowsVisibleChanged event if it changed the row visibility.
-   * 
+   *
    * This method can be called from the api, passing in the gridRow we want
    * altered.  It should really work by calling gridRow.setRowInvisible, but that's
    * not the way I coded it, and too late to change now.  Changed to just call
    * the internal function row.setThisRowInvisible().
-   * 
+   *
    * @param {GridRow} row the row we want to set to invisible
-   * 
+   *
    */
   GridRow.prototype.setRowInvisible = function ( row ) {
     if (row && row.setThisRowInvisible){
       row.setThisRowInvisible( 'user' );
     }
   };
-  
-  
+
+
   /**
    * @ngdoc function
    * @name clearRowInvisible
    * @methodOf  ui.grid.class:GridRow
    * @description Clears an override on the row that forces it to always
    * be invisible. Emits the rowsVisibleChanged event if it changed the row visibility.
-   * 
+   *
    * This method can be called from the api, passing in the gridRow we want
    * altered.  It should really work by calling gridRow.clearRowInvisible, but that's
    * not the way I coded it, and too late to change now.  Changed to just call
    * the internal function row.clearThisRowInvisible().
-   * 
+   *
    * @param {GridRow} row the row we want to clear the invisible flag
-   * 
+   *
    */
   GridRow.prototype.clearRowInvisible = function ( row ) {
     if (row && row.clearThisRowInvisible){
       row.clearThisRowInvisible( 'user' );
     }
   };
-  
-  
+
+
   /**
    * @ngdoc function
    * @name setThisRowInvisible
@@ -8790,10 +8790,10 @@ angular.module('ui.grid')
    * @ngdoc function
    * @name clearRowInvisible
    * @methodOf ui.grid.class:GridRow
-   * @description Clears any override on the row visibility, returning it 
+   * @description Clears any override on the row visibility, returning it
    * to normal visibility calculations.  Emits the rowsVisibleChanged
    * event
-   * 
+   *
    * @param {string} reason the reason (usually the module) for the row to be invisible.
    * E.g. grouping, user, filter
    * @param {boolean} fromRowsProcessor whether we were called from a rowsProcessor, passed through to evaluateRowVisibility
@@ -8810,9 +8810,9 @@ angular.module('ui.grid')
    * @ngdoc function
    * @name evaluateRowVisibility
    * @methodOf ui.grid.class:GridRow
-   * @description Determines whether the row should be visible based on invisibleReason, 
+   * @description Determines whether the row should be visible based on invisibleReason,
    * and if it changes the row visibility, then emits the rowsVisibleChanged event.
-   * 
+   *
    * Queues a grid refresh, but doesn't call it directly to avoid hitting lots of grid refreshes.
    * @param {boolean} fromRowProcessor if true, then it won't raise events or queue the refresh, the
    * row processor does that already
@@ -8826,7 +8826,7 @@ angular.module('ui.grid')
         }
       });
     }
-    
+
     if ( typeof(this.visible) === 'undefined' || this.visible !== newVisibility ){
       this.visible = newVisibility;
       if ( !fromRowProcessor ){
@@ -8835,7 +8835,7 @@ angular.module('ui.grid')
       }
     }
   };
-  
+
 
   return GridRow;
 }]);
@@ -9039,7 +9039,7 @@ angular.module('ui.grid')
           if (grid.options.rowTemplate) {
             var rowTemplateFnPromise = $q.defer();
             grid.getRowTemplateFn = rowTemplateFnPromise.promise;
-            
+
             gridUtil.getTemplate(grid.options.rowTemplate)
               .then(
                 function (template) {
@@ -9119,7 +9119,7 @@ angular.module('ui.grid')
             } else {
               col[providedType] = colDef[templateType];
             }
- 
+
              templateGetPromises.push(gridUtil.getTemplate(col[providedType])
                 .then(
                 function (template) {
@@ -9192,7 +9192,7 @@ angular.module('ui.grid')
 
           return $q.all(templateGetPromises);
         },
-        
+
 
         rowTemplateAssigner: function rowTemplateAssigner(row) {
           var grid = this;
@@ -9216,7 +9216,7 @@ angular.module('ui.grid')
               .then(function (template) {
                 // Compile the template
                 var rowTemplateFn = $compile(template);
-                
+
                 // Resolve the compiled template function promise
                 perRowTemplateFnPromise.resolve(rowTemplateFn);
               },
@@ -9267,7 +9267,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    */
   rowSearcher.getTerm = function getTerm(filter) {
     if (typeof(filter.term) === 'undefined') { return filter.term; }
-    
+
     var term = filter.term;
 
     // Strip leading and trailing whitespace if the term is a string
@@ -9296,7 +9296,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
       return term;
     }
   };
-  
+
 
   /**
    * @ngdoc function
@@ -9315,7 +9315,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
     }
 
     var term = rowSearcher.getTerm(filter);
-    
+
     if (/\*/.test(term)) {
       var regexpFlags = '';
       if (!filter.flags || !filter.flags.caseSensitive) {
@@ -9330,8 +9330,8 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
       return defaultCondition;
     }
   };
-  
-  
+
+
   /**
    * @ngdoc function
    * @name setupFilters
@@ -9339,34 +9339,34 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    * @description For a given columns filters (either col.filters, or [col.filter] can be passed in),
    * do all the parsing and pre-processing and store that data into a new filters object.  The object
    * has the condition, the flags, the stripped term, and a parsed reg exp if there was one.
-   * 
-   * We could use a forEach in here, since it's much less performance sensitive, but since we're using 
+   *
+   * We could use a forEach in here, since it's much less performance sensitive, but since we're using
    * for loops everywhere else in this module...
-   * 
+   *
    * @param {array} filters the filters from the column (col.filters or [col.filter])
    * @returns {array} An array of parsed/preprocessed filters
    */
   rowSearcher.setupFilters = function setupFilters( filters ){
     var newFilters = [];
-    
+
     var filtersLength = filters.length;
     for ( var i = 0; i < filtersLength; i++ ){
       var filter = filters[i];
-      
+
       if ( filter.noTerm || !gridUtil.isNullOrUndefined(filter.term) ){
         var newFilter = {};
-        
+
         var regexpFlags = '';
         if (!filter.flags || !filter.flags.caseSensitive) {
           regexpFlags += 'i';
         }
-    
+
         if ( !gridUtil.isNullOrUndefined(filter.term) ){
           // it is possible to have noTerm.  We don't need to copy that across, it was just a flag to avoid
           // getting the filter ignored if the filter was a function that didn't use a term
           newFilter.term = rowSearcher.stripTerm(filter);
         }
-        
+
         if ( filter.condition ){
           newFilter.condition = filter.condition;
         } else {
@@ -9378,7 +9378,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
         if (newFilter.condition === uiGridConstants.filter.STARTS_WITH) {
           newFilter.startswithRE = new RegExp('^' + newFilter.term, regexpFlags);
         }
-        
+
          if (newFilter.condition === uiGridConstants.filter.ENDS_WITH) {
           newFilter.endswithRE = new RegExp(newFilter.term + '$', regexpFlags);
         }
@@ -9390,13 +9390,13 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
         if (newFilter.condition === uiGridConstants.filter.EXACT) {
           newFilter.exactRE = new RegExp('^' + newFilter.term + '$', regexpFlags);
         }
-        
+
         newFilters.push(newFilter);
       }
     }
     return newFilters;
   };
-  
+
 
   /**
    * @ngdoc function
@@ -9404,7 +9404,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    * @methodOf ui.grid.service:rowSearcher
    * @description Runs a single pre-parsed filter against a cell, returning true
    * if the cell matches that one filter.
-   * 
+   *
    * @param {Grid} grid the grid we're working against
    * @param {GridRow} row the row we're matching against
    * @param {GridCol} column the column that we're working against
@@ -9500,7 +9500,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    * @propertyOf ui.grid.class:GridOptions
    * @description False by default. When enabled, this setting suppresses the internal filtering.
    * All UI logic will still operate, allowing filter conditions to be set and modified.
-   * 
+   *
    * The external filter logic can listen for the `filterChange` event, which fires whenever
    * a filter has been adjusted.
    */
@@ -9508,7 +9508,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    * @ngdoc function
    * @name searchColumn
    * @methodOf ui.grid.service:rowSearcher
-   * @description Process provided filters on provided column against a given row. If the row meets 
+   * @description Process provided filters on provided column against a given row. If the row meets
    * the conditions on all the filters, return true.
    * @param {Grid} grid Grid to search in
    * @param {GridRow} row Row to search on
@@ -9539,7 +9539,7 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
    * @ngdoc function
    * @name search
    * @methodOf ui.grid.service:rowSearcher
-   * @description Run a search across the given rows and columns, marking any rows that don't 
+   * @description Run a search across the given rows and columns, marking any rows that don't
    * match the stored col.filters or col.filter as invisible.
    * @param {Grid} grid Grid instance to search inside
    * @param {Array[GridRow]} rows GridRows to filter
@@ -9598,14 +9598,14 @@ module.service('rowSearcher', ['gridUtil', 'uiGridConstants', function (gridUtil
       var foreachFilterCol = function(grid, filterData){
         var rowsLength = rows.length;
         for ( var i = 0; i < rowsLength; i++){
-          foreachRow(grid, rows[i], filterData.col, filterData.filters);  
+          foreachRow(grid, rows[i], filterData.col, filterData.filters);
         }
       };
 
       // nested loop itself - foreachFilterCol, which in turn calls foreachRow
       var filterDataLength = filterData.length;
       for ( var j = 0; j < filterDataLength; j++){
-        foreachFilterCol( grid, filterData[j] );  
+        foreachFilterCol( grid, filterData[j] );
       }
 
       if (grid.api.core.raise.rowsVisibleChanged) {
@@ -9633,14 +9633,14 @@ var module = angular.module('ui.grid');
 /**
  * @ngdoc object
  * @name ui.grid.class:RowSorter
- * @description RowSorter provides the default sorting mechanisms, 
- * including guessing column types and applying appropriate sort 
+ * @description RowSorter provides the default sorting mechanisms,
+ * including guessing column types and applying appropriate sort
  * algorithms
- * 
- */ 
+ *
+ */
 
 module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGridConstants) {
-  var currencyRegexStr = 
+  var currencyRegexStr =
     '(' +
     uiGridConstants.CURRENCY_SYMBOLS
       .map(function (a) { return '\\' + a; }) // Escape all the currency symbols ($ at least will jack up this regex)
@@ -9723,7 +9723,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @methodOf ui.grid.class:RowSorter
    * @name basicSort
    * @description Sorts any values that provide the < method, including strings
-   * or numbers.  Handles nulls and undefined through calling handleNulls 
+   * or numbers.  Handles nulls and undefined through calling handleNulls
    * @param {object} a sort value a
    * @param {object} b sort value b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -9748,7 +9748,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name sortNumber
-   * @description Sorts numerical values.  Handles nulls and undefined through calling handleNulls 
+   * @description Sorts numerical values.  Handles nulls and undefined through calling handleNulls
    * @param {object} a sort value a
    * @param {object} b sort value b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -9767,8 +9767,8 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name sortNumberStr
-   * @description Sorts numerical values that are stored in a string (i.e. parses them to numbers first).  
-   * Handles nulls and undefined through calling handleNulls 
+   * @description Sorts numerical values that are stored in a string (i.e. parses them to numbers first).
+   * Handles nulls and undefined through calling handleNulls
    * @param {object} a sort value a
    * @param {object} b sort value b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -9782,36 +9782,36 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
           numB, // The parsed number form of 'b'
           badA = false,
           badB = false;
-  
+
       // Try to parse 'a' to a float
       numA = parseFloat(a.replace(/[^0-9.-]/g, ''));
-  
+
       // If 'a' couldn't be parsed to float, flag it as bad
       if (isNaN(numA)) {
           badA = true;
       }
-  
+
       // Try to parse 'b' to a float
       numB = parseFloat(b.replace(/[^0-9.-]/g, ''));
-  
+
       // If 'b' couldn't be parsed to float, flag it as bad
       if (isNaN(numB)) {
           badB = true;
       }
-  
+
       // We want bad ones to get pushed to the bottom... which effectively is "greater than"
       if (badA && badB) {
           return 0;
       }
-  
+
       if (badA) {
           return 1;
       }
-  
+
       if (badB) {
           return -1;
       }
-  
+
       return numA - numB;
     }
   };
@@ -9821,7 +9821,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name sortAlpha
-   * @description Sorts string values. Handles nulls and undefined through calling handleNulls 
+   * @description Sorts string values. Handles nulls and undefined through calling handleNulls
    * @param {object} a sort value a
    * @param {object} b sort value b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -9833,7 +9833,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
     } else {
       var strA = a.toString().toLowerCase(),
           strB = b.toString().toLowerCase();
-  
+
       return strA === strB ? 0 : (strA < strB ? -1 : 1);
     }
   };
@@ -9862,7 +9862,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
       }
       var timeA = a.getTime(),
           timeB = b.getTime();
-  
+
       return timeA === timeB ? 0 : (timeA < timeB ? -1 : 1);
     }
   };
@@ -9872,8 +9872,8 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name sortBool
-   * @description Sorts boolean values, true is considered larger than false. 
-   * Handles nulls and undefined through calling handleNulls 
+   * @description Sorts boolean values, true is considered larger than false.
+   * Handles nulls and undefined through calling handleNulls
    * @param {object} a sort value a
    * @param {object} b sort value b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -9886,7 +9886,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
       if (a && b) {
         return 0;
       }
-  
+
       if (!a && !b) {
         return 0;
       }
@@ -9901,17 +9901,17 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name getSortFn
-   * @description Get the sort function for the column.  Looks first in 
+   * @description Get the sort function for the column.  Looks first in
    * rowSorter.colSortFnCache using the column name, failing that it
    * looks at col.sortingAlgorithm (and puts it in the cache), failing that
    * it guesses the sort algorithm based on the data type.
-   * 
+   *
    * The cache currently seems a bit pointless, as none of the work we do is
    * processor intensive enough to need caching.  Presumably in future we might
    * inspect the row data itself to guess the sort function, and in that case
    * it would make sense to have a cache, the infrastructure is in place to allow
    * that.
-   * 
+   *
    * @param {Grid} grid the grid to consider
    * @param {GridCol} col the column to find a function for
    * @param {array} rows an array of grid rows.  Currently unused, but presumably in future
@@ -9964,7 +9964,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @description Used where multiple columns are present in the sort criteria,
    * we determine which column should take precedence in the sort by sorting
    * the columns based on their sort.priority
-   * 
+   *
    * @param {gridColumn} a column a
    * @param {gridColumn} b column b
    * @returns {number} normal sort function, returns -ve, 0, +ve
@@ -10007,14 +10007,14 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
    * @description Prevents the internal sorting from executing.  Events will
    * still be fired when the sort changes, and the sort information on
    * the columns will be updated, allowing an external sorter (for example,
-   * server sorting) to be implemented.  Defaults to false. 
-   * 
+   * server sorting) to be implemented.  Defaults to false.
+   *
    */
   /**
    * @ngdoc method
    * @methodOf ui.grid.class:RowSorter
    * @name sort
-   * @description sorts the grid 
+   * @description sorts the grid
    * @param {Object} grid the grid itself
    * @param {array} rows the rows to be sorted
    * @param {array} columns the columns in which to look
@@ -10026,7 +10026,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
     if (!rows) {
       return;
     }
-    
+
     if (grid.options.useExternalSorting){
       return rows;
     }
@@ -10046,7 +10046,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
     if (sortCols.length === 0) {
       return rows;
     }
-    
+
     // Re-usable variables
     var col, direction;
 
@@ -10072,7 +10072,7 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
         direction = sortCols[idx].sort.direction;
 
         sortFn = rowSorter.getSortFn(grid, col, r);
-        
+
         var propA, propB;
 
         if ( col.sortCellFiltered ){
@@ -10088,14 +10088,14 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
         idx++;
       }
 
-      // Chrome doesn't implement a stable sort function.  If our sort returns 0 
+      // Chrome doesn't implement a stable sort function.  If our sort returns 0
       // (i.e. the items are equal), and we're at the last sort column in the list,
       // then return the previous order using our custom
       // index variable
       if (tem === 0 ) {
         return rowA.entity.$$uiGridIndex - rowB.entity.$$uiGridIndex;
       }
-      
+
       // Made it this far, we don't have to worry about null & undefined
       if (direction === uiGridConstants.ASC) {
         return tem;
@@ -10105,13 +10105,13 @@ module.service('rowSorter', ['$parse', 'uiGridConstants', function ($parse, uiGr
     };
 
     var newRows = rows.sort(rowSortFn);
-    
+
     // remove the custom index field on each row, used to make a stable sort out of unstable sorts (e.g. Chrome)
     var clearIndex = function( row, idx ){
        delete row.entity.$$uiGridIndex;
     };
     rows.forEach(clearIndex);
-    
+
     return newRows;
   };
 
@@ -11694,8 +11694,8 @@ module.filter('px', function() {
         importer: {
           noHeaders: 'Column names were unable to be derived, does the file have a header?',
           noObjects: 'Objects were not able to be derived, was there data in the file other than headers?',
-          invalidCsv: 'File was unable to be processed, is it valid CSV?',
-          invalidJson: 'File was unable to be processed, is it valid Json?',
+          invalidCsv: 'File was unable to be processes, is it valid CSV?',
+          invalidJson: 'File was unable to be processes, is it valid Json?',
           jsonNotArray: 'Imported json file must contain an array, aborting.'
         }
       });
@@ -11857,8 +11857,8 @@ module.filter('px', function() {
         importer: {
           noHeaders: 'Column names were unable to be derived, does the file have a header?',
           noObjects: 'Objects were not able to be derived, was there data in the file other than headers?',
-          invalidCsv: 'File was unable to be processed, is it valid CSV?',
-          invalidJson: 'File was unable to be processed, is it valid Json?',
+          invalidCsv: 'File was unable to be processes, is it valid CSV?',
+          invalidJson: 'File was unable to be processes, is it valid Json?',
           jsonNotArray: 'Imported json file must contain an array, aborting.'
         },
         pagination: {
@@ -12259,8 +12259,8 @@ module.filter('px', function() {
         importer: {
           noHeaders: 'Column names were unable to be derived, does the file have a header?',
           noObjects: 'Objects were not able to be derived, was there data in the file other than headers?',
-          invalidCsv: 'File was unable to be processed, is it valid CSV?',
-          invalidJson: 'File was unable to be processed, is it valid Json?',
+          invalidCsv: 'File was unable to be processes, is it valid CSV?',
+          invalidJson: 'File was unable to be processes, is it valid Json?',
           jsonNotArray: 'Imported json file must contain an array, aborting.'
         }
       });
@@ -12791,7 +12791,7 @@ module.filter('px', function() {
           aggregate_min: 'Agr: Min',
           aggregate_avg: 'Agr: Med',
           aggregate_remove: 'Agr: Remover'
-        }        
+        }
       });
       return $delegate;
     }]);
@@ -12850,8 +12850,8 @@ module.filter('px', function() {
         importer: {
           noHeaders: 'Column names were unable to be derived, does the file have a header?',
           noObjects: 'Objects were not able to be derived, was there data in the file other than headers?',
-          invalidCsv: 'File was unable to be processed, is it valid CSV?',
-          invalidJson: 'File was unable to be processed, is it valid Json?',
+          invalidCsv: 'File was unable to be processes, is it valid CSV?',
+          invalidJson: 'File was unable to be processes, is it valid Json?',
           jsonNotArray: 'Imported json file must contain an array, aborting.'
         }
       });
@@ -12909,8 +12909,8 @@ module.filter('px', function() {
         importer: {
           noHeaders: 'Column names were unable to be derived, does the file have a header?',
           noObjects: 'Objects were not able to be derived, was there data in the file other than headers?',
-          invalidCsv: 'File was unable to be processed, is it valid CSV?',
-          invalidJson: 'File was unable to be processed, is it valid Json?',
+          invalidCsv: 'File was unable to be processes, is it valid CSV?',
+          invalidJson: 'File was unable to be processes, is it valid Json?',
           jsonNotArray: 'Imported json file must contain an array, aborting.'
         }
       });
@@ -19392,7 +19392,7 @@ module.filter('px', function() {
           try {
             loadedObjects = JSON.parse( importFile.target.result );
           } catch (e) {
-            service.alertError( grid, 'importer.invalidJson', 'File could not be processed, is it valid json? Content was: ', importFile.target.result );
+            service.alertError( grid, 'importer.invalidJson', 'File could not be processes, is it valid json? Content was: ', importFile.target.result );
             return;
           }
 
@@ -19420,7 +19420,7 @@ module.filter('px', function() {
           return function( importFile ){
             var importArray = service.parseCsv( importFile );
             if ( !importArray || importArray.length < 1 ){
-              service.alertError( grid, 'importer.invalidCsv', 'File could not be processed, is it valid csv? Content was: ', importFile.target.result );
+              service.alertError( grid, 'importer.invalidCsv', 'File could not be processes, is it valid csv? Content was: ', importFile.target.result );
               return;
             }
 
@@ -22286,7 +22286,7 @@ module.filter('px', function() {
          * @name processSuccessPromise
          * @description  Returns a function that processes the successful
          * resolution of a save promise
-         * @param {object} grid the grid for which the promise should be processed
+         * @param {object} grid the grid for which the promise should be processes
          * @param {GridRow} gridRow the row that has been saved
          * @returns {function} the success handling function
          */
@@ -22311,7 +22311,7 @@ module.filter('px', function() {
          * @name processErrorPromise
          * @description  Returns a function that processes the failed
          * resolution of a save promise
-         * @param {object} grid the grid for which the promise should be processed
+         * @param {object} grid the grid for which the promise should be processes
          * @param {GridRow} gridRow the row that is now in error
          * @returns {function} the error handling function
          */
@@ -22408,7 +22408,7 @@ module.filter('px', function() {
          * @name endEditCell
          * @description Receives an afterCellEdit event from the edit function,
          * and sets flags as appropriate.  Only the rowEntity parameter
-         * is processed, although other params are available.  Grid
+         * is processes, although other params are available.  Grid
          * is automatically provided by the gridApi.
          * @param {object} rowEntity the data entity for which the cell
          * was edited
@@ -22442,7 +22442,7 @@ module.filter('px', function() {
          * @description Receives a beginCellEdit event from the edit function,
          * and cancels any rowEditSaveTimers if present, as the user is still editing
          * this row.  Only the rowEntity parameter
-         * is processed, although other params are available.  Grid
+         * is processes, although other params are available.  Grid
          * is automatically provided by the gridApi.
          * @param {object} rowEntity the data entity for which the cell
          * editing has commenced
@@ -22465,7 +22465,7 @@ module.filter('px', function() {
          * was not already dirty, then it's not dirty now either and does nothing.
          *
          * Only the rowEntity parameter
-         * is processed, although other params are available.  Grid
+         * is processes, although other params are available.  Grid
          * is automatically provided by the gridApi.
          *
          * @param {object} rowEntity the data entity for which the cell

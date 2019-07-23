@@ -61,7 +61,7 @@ public class BpmnParseHandlers {
   public void parseElement(BpmnParse bpmnParse, BaseElement element) {
     
     if (element instanceof DataObject) {
-      // ignore DataObject elements because they are processed on Process and Sub process level
+      // ignore DataObject elements because they are processes on Process and Sub process level
       return;
     }
     

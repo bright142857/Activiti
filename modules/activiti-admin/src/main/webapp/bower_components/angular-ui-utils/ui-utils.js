@@ -504,7 +504,7 @@ angular.module('ui.mask', [])
 
             maskPlaceholder = placeholderAttr;
 
-            // If the mask is processed, then we need to update the value
+            // If the mask is processes, then we need to update the value
             if (maskProcessed) {
               eventHandler();
             }
@@ -2098,7 +2098,7 @@ function uiUploader($log) {
     self.options = {};
     self.activeUploads = 0;
     $log.info('uiUploader loaded');
-    
+
     function addFiles(files) {
         for (var i = 0; i < files.length; i++) {
             self.files.push(files[i]);
@@ -2120,15 +2120,15 @@ function uiUploader($log) {
             ajaxUpload(self.files[i], self.options.url);
         }
     }
-    
+
     function removeFile(file){
         self.files.splice(self.files.indexOf(file),1);
     }
-    
+
     function removeAll(){
         self.files.splice(0,self.files.length);
     }
-    
+
     return {
         addFiles: addFiles,
         getFiles: getFiles,
@@ -2137,7 +2137,7 @@ function uiUploader($log) {
         removeFile: removeFile,
         removeAll:removeAll
     };
-    
+
     function getHumanSize(bytes) {
         var sizes = ['n/a', 'bytes', 'KiB', 'MiB', 'GiB', 'TB', 'PB', 'EiB', 'ZiB', 'YiB'];
         var i = +Math.floor(Math.log(bytes) / Math.log(1024));

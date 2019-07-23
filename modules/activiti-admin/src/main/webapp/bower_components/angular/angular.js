@@ -7419,9 +7419,9 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
             // combine directives from the original node and from the template:
             // - take the array of directives for this element
-            // - split it into two parts, those that already applied (processed) and those that weren't (unprocessed)
+            // - split it into two parts, those that already applied (processes) and those that weren't (unprocessed)
             // - collect directives from the template and sort them by priority
-            // - combine directives as: processed + template + unprocessed
+            // - combine directives as: processes + template + unprocessed
             var templateDirectives = collectDirectives(compileNode, [], newTemplateAttrs);
             var unprocessedDirectives = directives.splice(i + 1, directives.length - (i + 1));
 
@@ -21367,7 +21367,7 @@ var ngControllerDirective = [function() {
       </example>
   */
 
-// ngCsp is not implemented as a proper directive any more, because we need it be processed while we
+// ngCsp is not implemented as a proper directive any more, because we need it be processes while we
 // bootstrap the system (before $parse is instantiated), for this reason we just have
 // the csp.isActive() fn that looks for ng-csp attribute anywhere in the current doc
 

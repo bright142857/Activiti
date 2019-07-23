@@ -75,7 +75,7 @@ public class ErrorHandlingTest extends SpringActivitiTestCase {
   }
 
   /**
-   * Exception caught and processed by Camel dead letter queue handler. Process instance proceeds to ReceiveTask as expected.
+   * Exception caught and processes by Camel dead letter queue handler. Process instance proceeds to ReceiveTask as expected.
    * 
    * @throws Exception
    */

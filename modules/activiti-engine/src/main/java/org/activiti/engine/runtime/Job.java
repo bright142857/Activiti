@@ -36,7 +36,7 @@ public interface Job {
   String getId();
 
   /**
-   * Returns the date on which this job is supposed to be processed.
+   * Returns the date on which this job is supposed to be processes.
    */
   Date getDuedate();
 

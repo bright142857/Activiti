@@ -37,8 +37,7 @@ public class EndpointAutoConfiguration {
 
     @Bean
     public ProcessEngineMvcEndpoint processEngineMvcEndpoint(
-            ProcessEngineEndpoint engineEndpoint,
-            RepositoryService repositoryService) {
+            ProcessEngineEndpoint engineEndpoint, RepositoryService repositoryService) {
         return new ProcessEngineMvcEndpoint(engineEndpoint, repositoryService);
     }
 }

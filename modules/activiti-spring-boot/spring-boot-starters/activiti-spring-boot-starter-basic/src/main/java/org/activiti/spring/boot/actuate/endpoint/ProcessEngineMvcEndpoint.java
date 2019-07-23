@@ -12,8 +12,6 @@
  */
 package org.activiti.spring.boot.actuate.endpoint;
 
-import java.io.InputStream;
-
 import org.activiti.bpmn.BpmnAutoLayout;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.engine.RepositoryService;
@@ -29,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.InputStream;
+
 /**
  * Renders a valid running BPMN process definition as a BPMN diagram.
  *
@@ -42,8 +42,8 @@ public class ProcessEngineMvcEndpoint{
     private final RepositoryService repositoryService;
     private final ProcessEngineEndpoint processEngineEndpoint;
 
-    public ProcessEngineMvcEndpoint(ProcessEngineEndpoint processEngineEndpoint,
-                                    RepositoryService repositoryService) {
+    public ProcessEngineMvcEndpoint(ProcessEngineEndpoint processEngineEndpoint, RepositoryService repositoryService) {
+//        super(processEngineEndpoint);
         this.processEngineEndpoint = processEngineEndpoint;
         this.repositoryService = repositoryService;
     }

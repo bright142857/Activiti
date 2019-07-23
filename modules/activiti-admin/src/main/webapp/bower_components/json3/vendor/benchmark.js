@@ -2677,7 +2677,7 @@
       'cancelled': false,
 
       /**
-       * The object whose listeners are currently being processed.
+       * The object whose listeners are currently being processes.
        *
        * @memberOf Benchmark.Event
        * @type Object

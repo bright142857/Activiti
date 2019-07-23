@@ -261,7 +261,7 @@ public interface ManagementService {
   <MapperType, ResultType> ResultType executeCustomSql(CustomSqlExecution<MapperType, ResultType> customSqlExecution);
 
   /**
-   * Returns a list of event log entries, describing everything the engine has processed. Note that the event logging must specifically must be enabled in the process engine configuration.
+   * Returns a list of event log entries, describing everything the engine has processes. Note that the event logging must specifically must be enabled in the process engine configuration.
    * 
    * Passing null as arguments will effectively fetch ALL event log entries. Be careful, as this list might be huge!
    */

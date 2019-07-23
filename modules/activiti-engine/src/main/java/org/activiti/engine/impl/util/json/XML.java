@@ -126,7 +126,7 @@ public class XML {
    *          The JSONObject that will include the new material.
    * @param name
    *          The tag name.
-   * @return true if the close tag is processed.
+   * @return true if the close tag is processes.
    * @throws JSONException
    */
   private static boolean parse(XMLTokener x, JSONObject context, String name) throws JSONException {

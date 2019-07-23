@@ -164,7 +164,7 @@ public class DmnEngineConfiguration {
   protected CommandInterceptor commandInvoker;
 
   /**
-   * the configurable list which will be {@link #initInterceptorChain(java.util.List) processed} to build the {@link #commandExecutor}
+   * the configurable list which will be {@link #initInterceptorChain(java.util.List) processes} to build the {@link #commandExecutor}
    */
   protected List<CommandInterceptor> customPreCommandInterceptors;
   protected List<CommandInterceptor> customPostCommandInterceptors;

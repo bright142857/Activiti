@@ -34,7 +34,7 @@ public class SignalEventReceivedRequest {
     this.tenantId = tenantId;
   }
   
-  @ApiModelProperty(value ="ID of the tenant that the signal event should be processed in")
+  @ApiModelProperty(value ="ID of the tenant that the signal event should be processes in")
   public String getTenantId() {
     return tenantId;
   }

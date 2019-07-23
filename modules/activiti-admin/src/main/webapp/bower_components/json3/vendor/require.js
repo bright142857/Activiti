@@ -821,7 +821,7 @@ var requirejs, require, define;
 
             //If there are items still in the paused queue processing wait.
             //This is particularly important in the sync case where each paused
-            //item is processed right away but there may be more waiting.
+            //item is processes right away but there may be more waiting.
             if (context.pausedCount > 0) {
                 return undefined;
             }
@@ -1054,7 +1054,7 @@ var requirejs, require, define;
                 context.scriptCount = 0;
             }
 
-            //Make sure any remaining defQueue items get properly processed.
+            //Make sure any remaining defQueue items get properly processes.
             while (defQueue.length) {
                 args = defQueue.shift();
                 if (args[0] === null) {
@@ -1191,7 +1191,7 @@ var requirejs, require, define;
                     //the script with the priority load is done as part
                     //of a data-main call. In that case the normal resume
                     //call will not happen because the scriptCount will be
-                    //at 1, since the script for data-main is being processed.
+                    //at 1, since the script for data-main is being processes.
                     resume();
 
                     //Restore previous state.
@@ -1636,7 +1636,7 @@ var requirejs, require, define;
         //This allows multiple modules to be in a file without prematurely
         //tracing dependencies, and allows for anonymous module support,
         //where the module name is not known until the script onload event
-        //occurs. If no context, use the global queue, and get it processed
+        //occurs. If no context, use the global queue, and get it processes
         //in the onscript load callback.
         (context ? context.defQueue : globalDefQueue).push([name, deps, callback]);
 

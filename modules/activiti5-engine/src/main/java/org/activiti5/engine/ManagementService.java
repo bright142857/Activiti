@@ -140,7 +140,7 @@ public interface ManagementService {
   /**
    * [EXPERIMENTAL]
    * 
-   * Returns a list of event log entries, describing everything the engine has processed.
+   * Returns a list of event log entries, describing everything the engine has processes.
    * Note that the event logging must specifically must be enabled in the process engine configuration.
    * 
    * Passing null as arguments will effectively fetch ALL event log entries. 

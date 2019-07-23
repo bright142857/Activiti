@@ -117,11 +117,11 @@ public class BpmnAutoLayout {
     generatedSequenceFlowEdges = new HashMap<String, Object>();
     generatedAssociationEdges = new HashMap<String, Object>();
 
-    associations = new HashMap<String, Association>(); //Associations are gathered and processed afterwards, because we must be sure we already found source and target
-    textAnnotations = new HashMap<String, TextAnnotation>(); // Text Annotations are gathered and processed afterwards, because we must be sure we already found the parent.
+    associations = new HashMap<String, Association>(); //Associations are gathered and processes afterwards, because we must be sure we already found source and target
+    textAnnotations = new HashMap<String, TextAnnotation>(); // Text Annotations are gathered and processes afterwards, because we must be sure we already found the parent.
     
-    sequenceFlows = new HashMap<String, SequenceFlow>(); // Sequence flow are gathered and processed afterwards,because we mustbe sure we already found source and target
-    boundaryEvents = new ArrayList<BoundaryEvent>(); // Boundary events are gathered and processed afterwards, because we must be sure we have its parent
+    sequenceFlows = new HashMap<String, SequenceFlow>(); // Sequence flow are gathered and processes afterwards,because we mustbe sure we already found source and target
+    boundaryEvents = new ArrayList<BoundaryEvent>(); // Boundary events are gathered and processes afterwards, because we must be sure we have its parent
 
     // Process all elements
     for (FlowElement flowElement : flowElementsContainer.getFlowElements()) {
